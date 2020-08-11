@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="container">
+            <form action="{% url 'search' %}" method="GET">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="검색어를 입력하세요" name="q" value="{{ q }}">
+                        <span class="input-group-btn">
+              <span class="icon-input-btn">
+                <input type="submit" class="btn btn-default" value="검색">
+              </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </form>
+        </div>
+
+        <div id="home_book">
+            <div class="container">
+                <div class="page-header">
+                    <h3>보유 자료</h3>
+                </div>
+                {% for book in books %}
+                    <div class="book">
+                        <h4><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h4>
+                        <p><strong>저자 </strong>{{ book.writers }} </p><br>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>새 서평 쓰기</h3>
+    <h3>{{ book.title }}</h3>
+
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">서평 달기</button>
+    </form>
+{% endblock %}

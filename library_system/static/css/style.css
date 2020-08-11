@@ -1,0 +1,30 @@
+.navbar-text {
+    margin-left: 10px;
+}
+
+.add_favorite {
+    display: inline;
+    margin-right: 10px;
+}
+
+#home_book {
+    margin-top: 10px;
+}
+
+input[name="username"], input[name="password"] {
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-bottom: 15px;
+}
+
+input[name="password_confirm"] {
+    margin-bottom: 20px;
+}
+
+div[class="per_review"] {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid gray;
+}

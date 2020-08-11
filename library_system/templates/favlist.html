@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>좋아하는 책</h1>
+        </div>
+        {% for book in favorite_books %}
+            {% if book.user == request.user %}
+                <h4><a href="{% url 'book_detail' pk=book.book.pk %}">{{ book.book.title }}</a></h4>
+                <p><strong>저자 </strong> {{ book.book.writers }}</p><br>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+

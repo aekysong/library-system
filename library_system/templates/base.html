@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Library System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="/">Library System</a>
+
+        {% if user.is_authenticated %}
+            <p class="navbar-text navbar-right">{{ user.profile.type }} | {{ user.username }}님 반갑습니다.</p>
+            <p class="navbar-text navbar-right"><a href="{% url 'logout' %}" class="navbar-link">로그아웃하기</a></p>
+            <p class="navbar-text navbar-right"><a href="{% url 'favlist' %}" class="navbar-link">좋아하는 책</a></p>
+
+            {% if user.profile.type == "manager" %}
+                <p class="navbar-text navbar-right"><a href="{% url 'add_book' %}" class="navbar-link">책 추가하기</a></p>
+            {% endif %}
+
+        {% else %}
+            <p class="navbar-text navbar-right"><a href="{% url 'login' %}" class="navbar-link">로그인하기</a></p>
+            <p class="navbar-text navbar-right"><a href="{% url 'signup' %}" class="navbar-link">회원가입</a></p>
+        {% endif %}
+    </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+</div>
+</div>
+</div>
+</body>
+
+</html>
